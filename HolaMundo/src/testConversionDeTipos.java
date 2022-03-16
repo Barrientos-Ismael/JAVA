@@ -1,0 +1,47 @@
+public class testConversionDeTipos {
+    public static void main(String[] args) {
+        String numeroStr = "50";
+
+        int numeroInt = Integer.parseInt(numeroStr);
+        System.out.println("numeroInt = "+numeroInt);
+
+        String realStr = "98765.43e-3";
+        double realDouble = Double.parseDouble(realStr);
+        System.out.println("realDouble = " +realDouble);
+
+        String logicoStr = "true";
+        boolean logicoBoolean = Boolean.parseBoolean(logicoStr);
+        System.out.println("logicoBoolean = "+logicoBoolean);
+
+        /*Al poner Var va a tomar la literal*/
+
+        int otroNumeroInt = 100;
+        System.out.println("otroNumeroInt = "+otroNumeroInt);
+
+        String otroNumeroStr = Integer.toString(otroNumeroInt);
+        System.out.println("otroNumeroStr = "+otroNumeroStr);
+
+        otroNumeroStr = String.valueOf(otroNumeroStr+10); //Al ser cadena de caracteres, suma a la cadena
+        System.out.println("otroNumeroStr = "+otroNumeroStr);
+
+        double otroRealDouble = 1.23456e2;
+        String otroRealStr = Double.toString(otroRealDouble);
+        System.out.println("otroRealStr = "+otroRealStr);
+
+        otroRealStr = String.valueOf(1.23456e2f);
+        System.out.println("otroRealStr = " + otroRealStr);
+
+        int i = 42768;
+        short s = (short)i; //casting, no es capaz de convertir. Perdida de informacion
+        long l = i;
+
+        System.out.println("short = "+s);
+        System.out.println("long = "+l);
+        char c = (char) i;
+        System.out.println("c = "+c);
+        float f = (float) i;
+        System.out.println("f ="+f);
+
+
+    }
+}
