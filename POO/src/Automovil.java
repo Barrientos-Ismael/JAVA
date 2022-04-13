@@ -5,6 +5,7 @@ public class Automovil {
     private String color = "gris";
     private double cilindrada;
     private int capacidadTanque = 40;
+    private static String colorPatente = "Naranja";
 
     public Automovil(){
     }
@@ -69,12 +70,20 @@ public class Automovil {
         this.capacidadTanque = capacidadTanque;
     }
 
+    public static String getColorPatente(){
+        return colorPatente;
+    }
+
+    public static void setColorPatente(String colorPatente){
+        Automovil.colorPatente = colorPatente;
+    }
     //No es buena practica imprimir dentro de los metodos
     public String verDetalle(){
         return "auto.fabricante = " + this.fabricante +
                 "\nauto.modelo = " + this.modelo +
                 "\nauto.color = " + this.color +
-                "\nauto.cilindrada = " + this.cilindrada;
+                "\nauto.cilindrada = " + this.cilindrada +
+                "\nauto.patenteColor = " + colorPatente;
     }
 
     public String acelerar(int rpm){
@@ -101,16 +110,22 @@ public class Automovil {
 
     @Override
     public boolean equals(Object obj) {
-
         if(this == obj) return true;
-
-        if(!(obj instanceof Automovil))
-            return false;
-
+        if(!(obj instanceof Automovil)) return false;
         Automovil a = (Automovil) obj;
         return (this.fabricante != null && this.modelo != null
                     && this.fabricante.equals(a.getFabricante())
                     && this.modelo.equals(a.getModelo()));
+    }
 
+    @Override
+    public String toString() {
+        return "Automovil{" +
+                "fabricante='" + fabricante + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", color='" + color + '\'' +
+                ", cilindrada=" + cilindrada +
+                ", capacidadTanque=" + capacidadTanque +
+                '}';
     }
 }
