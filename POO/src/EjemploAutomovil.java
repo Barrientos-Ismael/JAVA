@@ -5,12 +5,12 @@ public class EjemploAutomovil {
     //Por el momento la privacidad no la voy a utilizar por mas que rompa con el concepto de POO
         Automovil subaru = new Automovil("Subaru","Impreza");
         subaru.setCilindrada(2.0);
-        subaru.setColor("blanco");
+        subaru.setColor(Color.BLANCO);
 
-        Automovil mazda = new Automovil("Mazda","BT-70", "rojo", 3.0);
+        Automovil mazda = new Automovil("Mazda","BT-70", Color.ROJO, 3.0);
 
-        Automovil nissan = new Automovil("Nissan","Navara","GrisOscuro",3.5,50);
-        Automovil nissan2 = new Automovil("Nissan","Navara","GrisOscuro",3.5,50);
+        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS,3.5,50);
+        Automovil nissan2 = new Automovil("Nissan","Navara",Color.GRIS,3.5,50);
 
         Automovil auto = new Automovil();
         Date fecha = new Date();

@@ -1,31 +1,48 @@
 public class Automovil {
 
+    private int id;
     private String fabricante;
     private String modelo;
-    private String color = "gris";
+    private Color color = Color.GRIS;
     private double cilindrada;
     private int capacidadTanque = 40;
-    private static String colorPatente = "Naranja";
+
+    private static Color colorPatente = Color.NARANJA;
+    private static int capacidadTanqueEstatico = 30;
+    private static int ultimoId;
+
+    public static final Integer VELOCIDAD_MAX_CARRETERA = 120;
+    public static final Integer VELOCIDAD_MAX_CIUDAD = 60;
+
+    public static final String COLOR_ROJO = "Rojo";
+    public static final String COLOR_AMARILLO = "Amarillo";
+    public static final String COLOR_AZUL = "Azul";
+    public static final String COLOR_BLANCO = "Blanco";
+    public static final String COLOR_GRIS = "Gris Oscuro";
+
+
 
     public Automovil(){
+        this.id = ++ultimoId;
     }
 
     public Automovil(String fabricante, String modelo){
+        this();
         this.setFabricante(fabricante);
         this.setModelo(modelo);
     }
 
-    public Automovil(String fabricante, String modelo, String color){
+    public Automovil(String fabricante, String modelo, Color color){
         this(fabricante,modelo);
         this.setColor(color);
     }
 
-    public Automovil(String fabricante, String modelo, String color, double cilindrada) {
+    public Automovil(String fabricante, String modelo, Color color, double cilindrada) {
         this(fabricante,modelo,color);
         this.cilindrada = cilindrada;
     }
 
-    public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadTanque) {
+    public Automovil(String fabricante, String modelo, Color color, double cilindrada, int capacidadTanque) {
         this(fabricante,modelo,color,cilindrada);
         this.capacidadTanque = capacidadTanque;
     }
@@ -46,11 +63,11 @@ public class Automovil {
         this.modelo = modelo;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return this.color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -70,20 +87,30 @@ public class Automovil {
         this.capacidadTanque = capacidadTanque;
     }
 
-    public static String getColorPatente(){
+    public static Color getColorPatente(){
         return colorPatente;
     }
 
-    public static void setColorPatente(String colorPatente){
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static void setColorPatente(Color colorPatente){
         Automovil.colorPatente = colorPatente;
     }
     //No es buena practica imprimir dentro de los metodos
+
     public String verDetalle(){
-        return "auto.fabricante = " + this.fabricante +
+        return "Aut.id = " + this.id +
+                "\nauto.fabricante = " + this.fabricante +
                 "\nauto.modelo = " + this.modelo +
-                "\nauto.color = " + this.color +
+                "\nauto.color = " + this.color.getColor() +
                 "\nauto.cilindrada = " + this.cilindrada +
-                "\nauto.patenteColor = " + colorPatente;
+                "\nauto.patenteColor = " + colorPatente.getColor();
     }
 
     public String acelerar(int rpm){
@@ -101,11 +128,23 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, float porcentajeBencina){
-        return km/(this.capacidadTanque * porcentajeBencina);
+        return km/(this.capacidadTanque * (porcentajeBencina/100f));
+    }
+
+    public static float calcularConsumoEstatico(int km, float porcentajeBencina){
+        return km/(capacidadTanqueEstatico * (porcentajeBencina/100f));
     }
 
     public float calcularConsumo(int km, int porcentajeBencina){
         return km/(this.capacidadTanque * (porcentajeBencina/100f));
+    }
+
+    public static int getCapacidadTanqueEstatico() {
+        return capacidadTanqueEstatico;
+    }
+
+    public static void setCapacidadTanqueEstatico(int capacidadTanqueEstatico) {
+        Automovil.capacidadTanqueEstatico = capacidadTanqueEstatico;
     }
 
     @Override
@@ -121,6 +160,7 @@ public class Automovil {
     @Override
     public String toString() {
         return "Automovil{" +
+                "ID= " + id + '\'' +
                 "fabricante='" + fabricante + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", color='" + color + '\'' +
