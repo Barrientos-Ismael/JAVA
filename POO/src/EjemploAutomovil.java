@@ -4,13 +4,17 @@ public class EjemploAutomovil {
     public static void main(String[] args) {
     //Por el momento la privacidad no la voy a utilizar por mas que rompa con el concepto de POO
         Automovil subaru = new Automovil("Subaru","Impreza");
-        subaru.setCilindrada(2.0);
+        subaru.setMotor(new Motor(2.0, TipoMotor.BENCINA));
+        subaru.setEstanque(new Estanque());
         subaru.setColor(Color.BLANCO);
 
-        Automovil mazda = new Automovil("Mazda","BT-70", Color.ROJO, 3.0);
+        Automovil mazda = new Automovil("Mazda","BT-70", Color.ROJO, new Motor(3.0, TipoMotor.DIESEL));
+        mazda.setEstanque(new Estanque(45));
 
-        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS,3.5,50);
-        Automovil nissan2 = new Automovil("Nissan","Navara",Color.GRIS,3.5,50);
+        Automovil nissan = new Automovil("Nissan","Navara",Color.GRIS,new Motor(4.0, TipoMotor.DIESEL),new Estanque(45));
+        nissan.setColor(Color.AMARILLO);
+        Automovil nissan2 = new Automovil("Nissan","Navara", Color.GRIS,new Motor(3.5, TipoMotor.BENCINA),new Estanque(50));
+
 
         Automovil auto = new Automovil();
         Date fecha = new Date();

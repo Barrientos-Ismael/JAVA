@@ -1,11 +1,16 @@
-public class Automovil {
+public class Automovil implements Comparable<Automovil>{
 
     private int id;
     private String fabricante;
     private String modelo;
     private Color color = Color.GRIS;
-    private double cilindrada;
-    private int capacidadTanque = 40;
+    private Motor motor;
+    private Estanque estanque;
+    private Persona conductor;
+    private Rueda[] ruedas;
+    private int indiceRuedas;
+
+    private TipoAutomovil tipo;
 
     private static Color colorPatente = Color.NARANJA;
     private static int capacidadTanqueEstatico = 30;
@@ -24,6 +29,7 @@ public class Automovil {
 
     public Automovil(){
         this.id = ++ultimoId;
+        this.ruedas = new Rueda[5];
     }
 
     public Automovil(String fabricante, String modelo){
@@ -37,14 +43,20 @@ public class Automovil {
         this.setColor(color);
     }
 
-    public Automovil(String fabricante, String modelo, Color color, double cilindrada) {
+    public Automovil(String fabricante, String modelo, Color color, Motor motor) {
         this(fabricante,modelo,color);
-        this.cilindrada = cilindrada;
+        this.motor = motor;
     }
 
-    public Automovil(String fabricante, String modelo, Color color, double cilindrada, int capacidadTanque) {
-        this(fabricante,modelo,color,cilindrada);
-        this.capacidadTanque = capacidadTanque;
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Estanque estanque) {
+        this(fabricante,modelo,color,motor);
+        this.estanque = estanque;
+    }
+
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Estanque estanque, Persona conductor, Rueda[] ruedas) {
+        this(fabricante,modelo,color,motor,estanque);
+        this.conductor = conductor;
+        this.ruedas = ruedas;
     }
 
     public String getFabricante() {
@@ -71,20 +83,45 @@ public class Automovil {
         this.color = color;
     }
 
-    public double getCilindrada() {
-        return this.cilindrada;
+    public Motor getMotor() {
+        return motor;
     }
 
-    public void setCilindrada(double cilindrada) {
-        this.cilindrada = cilindrada;
+    public void setMotor(Motor motor) {
+        this.motor = motor;
     }
 
-    public int getCapacidadTanque() {
-        return this.capacidadTanque;
+    public Estanque getEstanque() {
+        if (estanque == null){
+            this.estanque = new Estanque();
+        }
+        return estanque;
     }
 
-    public void setCapacidadTanque(int capacidadTanque) {
-        this.capacidadTanque = capacidadTanque;
+    public void setEstanque(Estanque estanque) {
+        this.estanque = estanque;
+    }
+
+    public Persona getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Persona conductor) {
+        this.conductor = conductor;
+    }
+
+    public Rueda[] getRuedas() {
+        return ruedas;
+    }
+
+    public void setRuedas(Rueda[] ruedas) {
+        this.ruedas = ruedas;
+    }
+
+    public Automovil addRueda(Rueda rueda){
+        if (indiceRuedas < this.ruedas.length)
+            this.ruedas[indiceRuedas++] = rueda;
+        return this;
     }
 
     public static Color getColorPatente(){
@@ -104,13 +141,38 @@ public class Automovil {
     }
     //No es buena practica imprimir dentro de los metodos
 
+
+    public TipoAutomovil getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAutomovil tipo) {
+        this.tipo = tipo;
+    }
+
     public String verDetalle(){
-        return "Aut.id = " + this.id +
+        String detalle ="Aut.id = " + this.id +
                 "\nauto.fabricante = " + this.fabricante +
-                "\nauto.modelo = " + this.modelo +
-                "\nauto.color = " + this.color.getColor() +
-                "\nauto.cilindrada = " + this.cilindrada +
-                "\nauto.patenteColor = " + colorPatente.getColor();
+                "\nauto.modelo = " + this.modelo;
+
+                if (this.getTipo() != null)
+                    detalle += "\nauto.tipo = " + getTipo().getDescripcion();
+
+                detalle += "\nauto.color = " + this.color.getColor() +
+                        "\nauto.patenteColor = " + colorPatente.getColor();
+                if (this.motor != null)
+                    detalle +="\nauto.cilindrada = " + this.motor.getCilindrada();
+
+                detalle += "\nConductor: " + this.getConductor();
+
+                if (getRuedas() != null){
+                    detalle += "\nRuedas del Automovil: ";
+                    for (Rueda r: this.getRuedas())
+                        detalle+= "\n" + r.getMarca() + ", aro: " + r.getAro() + ", ancho: " + r.getAncho();
+                }
+
+
+        return detalle;
     }
 
     public String acelerar(int rpm){
@@ -128,7 +190,7 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, float porcentajeBencina){
-        return km/(this.capacidadTanque * (porcentajeBencina/100f));
+        return km/(this.getEstanque().getCapacidad() * (porcentajeBencina/100f));
     }
 
     public static float calcularConsumoEstatico(int km, float porcentajeBencina){
@@ -136,7 +198,7 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, int porcentajeBencina){
-        return km/(this.capacidadTanque * (porcentajeBencina/100f));
+        return km/(this.getEstanque().getCapacidad() * (porcentajeBencina/100f));
     }
 
     public static int getCapacidadTanqueEstatico() {
@@ -159,13 +221,13 @@ public class Automovil {
 
     @Override
     public String toString() {
-        return "Automovil{" +
-                "ID= " + id + '\'' +
-                "fabricante='" + fabricante + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", color='" + color + '\'' +
-                ", cilindrada=" + cilindrada +
-                ", capacidadTanque=" + capacidadTanque +
-                '}';
+        return "ID= " + id + ' ' +
+                " fabricante='" + fabricante + '\'' +
+                ", modelo='" + modelo + "\'";
+    }
+
+    @Override
+    public int compareTo(Automovil a) {
+        return this.modelo.compareTo(a.modelo);
     }
 }
