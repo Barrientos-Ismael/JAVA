@@ -22,5 +22,6 @@ public class EjemploPaquetes {
         System.out.println("saludo = " + saludo);
         String generoMujer = GENERO_FEMENIMO;
         String generoHombre = GENERO_MASCULUNO;
+
     }
 }
