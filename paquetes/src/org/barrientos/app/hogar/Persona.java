@@ -6,7 +6,7 @@ public class Persona {
     private ColorPelo colorPelo;
 
     //Public solo para ejemplo
-    public static final String GENERO_MASCULUNO = "Masculino";
+    public static final String GENERO_MASCULINO = "Masculino";
     public static final String GENERO_FEMENIMO = "Femenino";
 
     public String getNombre() {
