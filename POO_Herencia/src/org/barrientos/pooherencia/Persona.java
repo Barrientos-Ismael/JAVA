@@ -6,6 +6,21 @@ public class Persona {
     private int edad;
     private String email;
 
+    public Persona(){
+        System.out.println("Persona: Inicializando constructor");
+    }
+
+    public Persona(String nombre, String apellido){
+        this.nombre = nombre;
+        this.apellido = getApellido();
+    }
+
+    public Persona(String nombre, String apellido, int edad){
+        this(nombre,apellido);
+        this.edad = edad;
+    }
+
+
     public String getNombre() {
         return nombre;
     }
