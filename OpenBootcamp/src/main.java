@@ -8,7 +8,7 @@ public class main {
 
         System.out.println("-- PARTE 2 ---");
 
-        Coche automovil = new Coche();
+        Coche miCoche = new Coche();
         automovil.incrementarPuertas();
         System.out.println(automovil.getPuertas());
 
