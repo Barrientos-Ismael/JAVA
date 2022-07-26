@@ -2,14 +2,14 @@ package org.barrientos.poointerfaces;
 
 import org.barrientos.poointerfaces.modelo.Cliente;
 import org.barrientos.poointerfaces.repositorio.*;
+import org.barrientos.poointerfaces.repositorio.lista.ClienteListRepositorio;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EjemploRepositorio {
     public static void main(String[] args) {
 
-        OrdenablePaginableCrudRepositorio repo = new ClienteListRepositorio();
+        OrdenablePaginableCrudRepositorio<Cliente> repo = new ClienteListRepositorio();
         repo.crear(new Cliente("Jano", "Perez"));
         repo.crear(new Cliente("Bea","Gonzalez"));
         repo.crear(new Cliente("Luci", "Martinez"));
