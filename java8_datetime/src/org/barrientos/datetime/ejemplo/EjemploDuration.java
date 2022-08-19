@@ -1,7 +1,6 @@
 package org.barrientos.datetime.ejemplo;
 
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class EjemploDuration {
