@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4402bd89-5b90-40f1-89b9-8fe9510bf4d5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/barrientos/junit5app/ejemplos/models/Cuenta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/barrientos/junit5app/ejemplos/models/CuentaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/barrientos/junit5app/ejemplos/exceptions/DineroInsuficienteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/barrientos/junit5app/ejemplos/models/Banco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/barrientos/junit5app/ejemplos/models/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/barrientos/junit5app/ejemplos/models/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/barrientos/junit5app/ejemplos/models/CuentaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/barrientos/junit5app/ejemplos/models/CuentaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/barrientos/junit5app/ejemplos/models/Cuenta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/barrientos/junit5app/ejemplos/models/Cuenta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/barrientos/junit5app/ejemplos/models/CuentaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/barrientos/junit5app/ejemplos/models/CuentaTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -31,7 +30,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="2Dr1l4kbsEYhkFlJDEY06BcrdJ7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -53,7 +54,7 @@
       <recent name="org.barrientos.junit5app.ejemplos.models" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CuentaTest.testReferenciaCuenta">
+  <component name="RunManager" selected="JUnit.CuentaTest">
     <configuration name="CuentaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit5_app" />
       <extension name="coverage">
@@ -65,6 +66,38 @@
       <option name="PACKAGE_NAME" value="org.barrientos.junit5app.ejemplos.models" />
       <option name="MAIN_CLASS_NAME" value="org.barrientos.junit5app.ejemplos.models.CuentaTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CuentaTest.testDebitoCuenta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="junit5_app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.barrientos.junit5app.ejemplos.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.barrientos.junit5app.ejemplos.models" />
+      <option name="MAIN_CLASS_NAME" value="org.barrientos.junit5app.ejemplos.models.CuentaTest" />
+      <option name="METHOD_NAME" value="testDebitoCuenta" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CuentaTest.testDineroInsuficienteException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="junit5_app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.barrientos.junit5app.ejemplos.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.barrientos.junit5app.ejemplos.models" />
+      <option name="MAIN_CLASS_NAME" value="org.barrientos.junit5app.ejemplos.models.CuentaTest" />
+      <option name="METHOD_NAME" value="testDineroInsuficienteException" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,7 +118,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CuentaTest.testReferenciaCuenta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CuentaTest.testRelacionBancoCuenta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit5_app" />
       <extension name="coverage">
         <pattern>
@@ -95,23 +128,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.barrientos.junit5app.ejemplos.models" />
       <option name="MAIN_CLASS_NAME" value="org.barrientos.junit5app.ejemplos.models.CuentaTest" />
-      <option name="METHOD_NAME" value="testReferenciaCuenta" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CuentaTest.testSaldoCuenta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="junit5_app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.barrientos.junit5app.ejemplos.models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.barrientos.junit5app.ejemplos.models" />
-      <option name="MAIN_CLASS_NAME" value="org.barrientos.junit5app.ejemplos.models.CuentaTest" />
-      <option name="METHOD_NAME" value="testSaldoCuenta" />
+      <option name="METHOD_NAME" value="testRelacionBancoCuenta" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -119,10 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CuentaTest.testReferenciaCuenta" />
-        <item itemvalue="JUnit.CuentaTest.testSaldoCuenta" />
         <item itemvalue="JUnit.CuentaTest" />
+        <item itemvalue="JUnit.CuentaTest.testRelacionBancoCuenta" />
+        <item itemvalue="JUnit.CuentaTest.testDineroInsuficienteException" />
         <item itemvalue="JUnit.CuentaTest.testNombreCuenta" />
+        <item itemvalue="JUnit.CuentaTest.testDebitoCuenta" />
       </list>
     </recent_temporary>
   </component>
